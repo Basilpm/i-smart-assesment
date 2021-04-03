@@ -1,0 +1,79 @@
+app-payment-form {
+    width: 30%;
+    float: left;
+}
+.contnr {
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}
+.form-head {
+    background-color: #777777;
+    text-align: left;
+    padding: 15px;
+    h2 {
+        color: #ffffff;
+        font-size: 18px;
+        margin: 0;
+    }
+}
+.bdy {
+    padding: 20px;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        th {
+            background-color: #e2e2e2;
+        }
+        th, td {
+            padding: 5px;
+            text-align: left;
+            border: 1px solid;
+        }
+    }
+}
+.transaction-brd {
+    margin-left: 1%;
+    float: left;
+    width: 69%;
+    .vw-trans {
+        width: 100%;
+        border: 1px solid #777777;
+        border-radius: 3px;
+        margin-bottom: 20px;
+        .form-bdy {
+            padding: 20px;
+            .form-group {
+                width: 33.33%;
+                float: left;
+                label {
+                    font-size: 13px;
+                    float: left;
+                    width: 30%;
+                    text-align: center;
+                }
+                .rit {
+                    width: 70%;
+                    float: left;
+                    .form-control {
+                        padding: 6px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+    .hdr-banner1 {
+        width: 58.5%;
+        border: 1px solid #777777;
+        border-radius: 3px;
+        float: left;
+        margin-right: 1.5%;
+    }
+    .hdr-banner2 {
+        width: 40%;
+        border: 1px solid #777777;
+        border-radius: 3px;
+        float: left;
+    }
+}

@@ -1,0 +1,50 @@
+.paymnt-form {
+    width: 100%;
+    border: 1px solid #777777;
+    border-radius: 3px;
+    .form-head {
+        background-color: #777777;
+        text-align: left;
+        padding: 15px;
+        h2 {
+            color: #ffffff;
+            font-size: 18px;
+            margin: 0;
+        }
+    }
+    .form-bdy {
+        padding: 20px;
+        button {
+            background: #1976d2;
+            padding: 9px 15px;
+            width: 100%;
+            border: 0;
+            border-radius: 3px;
+            color: #ffffff;
+        }
+    }
+    .form-group {
+        margin-bottom: 15px;
+        label {
+            float: left;
+            width: 40%;
+            font-size: 13px;
+        }
+        .rit {
+            float: left;
+            width: 60%;
+            .form-control {
+                width: 100%;
+                padding: 6px;
+                &.is-invalid {
+                    border-color: #f44336;
+                }
+            }
+            .err div {
+                color: #f44336;
+                font-size: 12px;
+                margin-top: 4px;
+            }
+        }
+    }
+}

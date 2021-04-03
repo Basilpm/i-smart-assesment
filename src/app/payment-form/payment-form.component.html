@@ -1,0 +1,62 @@
+<div class="paymnt-form">
+    <div class="form-head">
+        <h2>Make / Receive Payments</h2>
+    </div>
+    <div class="form-bdy">
+        <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+            <div class="form-group clearfix">
+                <label>Amount</label>
+                <div class="rit">
+                    <input type="text" formControlName="amount" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.amount.errors }" />
+                    <div *ngIf="submitted && f.amount.errors" class="err">
+                        <div *ngIf="f.amount.errors.required">Amount is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group clearfix">
+                <label>Date</label>
+                <div class="rit">
+                    <input type="text" formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
+                    <div *ngIf="submitted && f.date.errors" class="err">
+                        <div *ngIf="f.date.errors.required">Date is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group clearfix">
+                <label>Payment Type</label>
+                <div class="rit">
+                    <select formControlName="paymentType" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.paymentType.errors }">
+                        <option value="Mr">Mr</option>
+                        <option value="Mrs">Mrs</option>
+                        <option value="Miss">Miss</option>
+                        <option value="Ms">Ms</option>
+                    </select>
+                    <div *ngIf="submitted && f.paymentType.errors" class="err">
+                        <div *ngIf="f.paymentType.errors.required">Payment Type is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group clearfix">
+                <label>Category</label>
+                <div class="rit">
+                    <input type="text" formControlName="category" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.category.errors }" />
+                    <div *ngIf="submitted && f.category.errors" class="err">
+                        <div *ngIf="f.category.errors.required">Category is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group clearfix">
+                <label>Description</label>
+                <div class="rit">
+                    <input type="text" formControlName="description" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.description.errors }" />
+                    <div *ngIf="submitted && f.description.errors" class="err">
+                        <div *ngIf="f.description.errors.required">Description is required</div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button>Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
