@@ -1,4 +1,10 @@
 .paymnt-form {
+    .success {
+        color: green;
+        font-size: 15px;
+        text-align: center;
+        margin: 15px auto;
+    }
     width: 100%;
     border: 1px solid #777777;
     border-radius: 3px;
@@ -14,6 +20,7 @@
     }
     .form-bdy {
         padding: 20px;
+        height: 395px;
         button {
             background: #1976d2;
             padding: 9px 15px;
@@ -33,6 +40,12 @@
         .rit {
             float: left;
             width: 60%;
+            position: relative;
+            .mat-datepicker-toggle {
+                position: absolute;
+                right: -4px;
+                top: -5px;
+            }
             .form-control {
                 width: 100%;
                 padding: 6px;

@@ -10,13 +10,17 @@
                     <input type="text" formControlName="amount" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.amount.errors }" />
                     <div *ngIf="submitted && f.amount.errors" class="err">
                         <div *ngIf="f.amount.errors.required">Amount is required</div>
+                        <div *ngIf="f.amount.errors.pattern">Enter only number</div>
+                        <div *ngIf="f.amount.errors.balanceLimit">Entered Amount is more than Debit balance.</div>
                     </div>
                 </div>
             </div>
             <div class="form-group clearfix">
                 <label>Date</label>
                 <div class="rit">
-                    <input type="text" formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
+                        <input type="text" matInput [matDatepicker]="picker" [max]="maxDate" formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
                     <div *ngIf="submitted && f.date.errors" class="err">
                         <div *ngIf="f.date.errors.required">Date is required</div>
                     </div>
@@ -26,10 +30,8 @@
                 <label>Payment Type</label>
                 <div class="rit">
                     <select formControlName="paymentType" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.paymentType.errors }">
-                        <option value="Mr">Mr</option>
-                        <option value="Mrs">Mrs</option>
-                        <option value="Miss">Miss</option>
-                        <option value="Ms">Ms</option>
+                        <option value="Make Payment">Make Payment</option>
+                        <option value="Receive Payment">Receive Payment</option>
                     </select>
                     <div *ngIf="submitted && f.paymentType.errors" class="err">
                         <div *ngIf="f.paymentType.errors.required">Payment Type is required</div>
@@ -39,7 +41,15 @@
             <div class="form-group clearfix">
                 <label>Category</label>
                 <div class="rit">
-                    <input type="text" formControlName="category" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.category.errors }" />
+                    <select formControlName="category" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.category.errors }">
+                        <option value="Medical">Medical</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Loans">Loans</option>
+                        <option value="Utility Bills">Utility Bills</option>
+                        <option value="Education">Education</option>
+                        <option value="Shopping">Shopping</option>
+                        <option value="Misc">Misc</option>
+                    </select>
                     <div *ngIf="submitted && f.category.errors" class="err">
                         <div *ngIf="f.category.errors.required">Category is required</div>
                     </div>
@@ -56,6 +66,8 @@
             </div>
             <div>
                 <button>Submit</button>
+
+                <p *ngIf="success" class="success">Payment Successfull!!!</p>
             </div>
         </form>
     </div>

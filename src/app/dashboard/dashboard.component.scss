@@ -19,6 +19,8 @@ app-payment-form {
 }
 .bdy {
     padding: 20px;
+    height: 250px;
+    overflow-y: auto;
     table {
         width: 100%;
         border-collapse: collapse;

@@ -10,19 +10,32 @@
                 <div class="form-group">
                     <label class="clearfix">Frequency</label>
                     <div class="rit">
-                        <input type="text" class="form-control" />
+                        <select [(ngModel)]="frequency" (change)="getTransaction()" class="form-control" >
+                            <option value="Current">Current</option>
+                            <option value="Monthly">Monthly</option>
+                        </select>
                     </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group" *ngIf="frequency == 'Monthly'">
                     <label class="clearfix">Month</label>
                     <div class="rit">
-                        <input type="text" class="form-control" />
+                        <select [(ngModel)]="month" class="form-control" (change)="getTransaction()" >
+                            <option *ngFor="let item of last6monthsArray" value="{{item}}">{{item}}</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="clearfix">Category</label>
                     <div class="rit">
-                        <input type="text" class="form-control" />
+                        <select [(ngModel)]="category" class="form-control" (change)="getTransaction()">
+                            <option  value="Medical">Medical</option>
+                            <option value="Travel">Travel</option>
+                            <option value="Loans">Loans</option>
+                            <option value="Utility Bills">Utility Bills</option>
+                            <option value="Education">Education</option>
+                            <option value="Shopping">Shopping</option>
+                            <option value="Misc">Misc</option>
+                        </select>
                     </div>
                 </div>
             </div>
@@ -41,26 +54,12 @@
                             <th>Amount</th>
                             <th>D/C</th>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Family</td>
-                            <td>Misc</td>
-                            <td>800.00</td>
-                            <td>D</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Family</td>
-                            <td>Misc</td>
-                            <td>800.00</td>
-                            <td>D</td>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Family</td>
-                            <td>Misc</td>
-                            <td>800.00</td>
-                            <td>D</td>
+                        <tr *ngFor="let transaction of transactionList">
+                            <td>{{transaction.txnId}}</td>
+                            <td>{{transaction.description}}</td>
+                            <td>{{transaction.category}}</td>
+                            <td>{{transaction.amount}}</td>
+                            <td>{{transaction.paymentType}}</td>
                         </tr>
                     </tbody>
                 </table>
