@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { APICallerService } from './service/apicaller.service';
 import { HttpClientModule } from '@angular/common/http';
 import { RootscopeService } from './service/rootscope.service';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RootscopeService } from './service/rootscope.service';
     AppRoutingModule,
     DashboardModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [APICallerService, RootscopeService],
   bootstrap: [AppComponent]

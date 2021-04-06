@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard.component';
 import { PaymentFormModule } from '../payment-form/payment-form.module';
 import { PaymentFormComponent } from '../payment-form/payment-form.component';
 import { JwPaginationModule } from 'jw-angular-pagination';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { JwPaginationModule } from 'jw-angular-pagination';
   imports: [
     BrowserModule,
     PaymentFormModule,
-    JwPaginationModule
+    JwPaginationModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [DashboardComponent]

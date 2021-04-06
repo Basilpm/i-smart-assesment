@@ -105,5 +105,13 @@
             "amount": 1824,
             "paymentType": "C"
         }
-    ]
+    ],
+    "spendPercentage": {
+        "medical": "500",
+        "entertainment": "200",
+        "car": "250",
+        "insurance": "150",
+        "housing": "1200",
+        "food": "600"
+    }
 }
