@@ -7,6 +7,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { APICallerService } from './service/apicaller.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RootscopeService } from './service/rootscope.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     HttpClientModule
   ],
-  providers: [APICallerService],
+  providers: [APICallerService, RootscopeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

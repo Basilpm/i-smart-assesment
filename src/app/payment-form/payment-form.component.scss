@@ -20,7 +20,13 @@
     }
     .form-bdy {
         padding: 20px;
-        height: 395px;
+        height: 417px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        form {
+            width: 100%;
+        }
         button {
             background: #1976d2;
             padding: 9px 15px;

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from 'src/environments/environment';
 import { APICallerService } from '../service/apicaller.service';
+import { RootscopeService } from '../service/rootscope.service';
 
 @Component({
   selector: 'app-payment-form',
@@ -16,7 +17,7 @@ export class PaymentFormComponent implements OnInit {
   customerBalance = '25000';
   success: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, public datepipe: DatePipe, private apicaller: APICallerService) { }
+  constructor(private formBuilder: FormBuilder, public datepipe: DatePipe, private apicaller: APICallerService, private rootscope: RootscopeService) { }
 
   ngOnInit() {
     this.paymentForm = this.formBuilder.group({
@@ -38,6 +39,7 @@ export class PaymentFormComponent implements OnInit {
       if (this.paymentForm.value && this.paymentForm.value.paymentType == 'Make Payment' && (Number(control.value) > Number(this.customerBalance))) {
         control.setErrors({ balanceLimit: true });
       } else {
+        this.rootscope.changeloaderComponent(true); 
         let data = {
             "amount": this.paymentForm.value.amount,
             "category": this.paymentForm.value.category,
@@ -52,6 +54,9 @@ export class PaymentFormComponent implements OnInit {
               console.log("Success");
               this.success = true;
               setTimeout(() => {
+                this.rootscope.changeloaderComponent(false); 
+              }, 1000);  
+              setTimeout(() => {
                 this.success = false;
                 this.submitted = false;
                 this.paymentForm.reset();
@@ -60,6 +65,9 @@ export class PaymentFormComponent implements OnInit {
           (error) => {
             console.log("Error");
             this.success = true;
+            setTimeout(() => {
+              this.rootscope.changeloaderComponent(false); 
+            }, 1000);  
             setTimeout(() => {
               this.success = false;
               this.submitted = false;

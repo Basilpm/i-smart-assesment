@@ -45,24 +45,27 @@
                 <h2>Expenditure</h2>
             </div>
             <div class="bdy">
-                <table>
-                    <tbody>
-                        <tr>
-                            <th>Txn ID</th>
-                            <th>Desc</th>
-                            <th>Category</th>
-                            <th>Amount</th>
-                            <th>D/C</th>
-                        </tr>
-                        <tr *ngFor="let transaction of transactionList">
-                            <td>{{transaction.txnId}}</td>
-                            <td>{{transaction.description}}</td>
-                            <td>{{transaction.category}}</td>
-                            <td>{{transaction.amount}}</td>
-                            <td>{{transaction.paymentType}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="tbl-wrp">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Txn ID</th>
+                                <th>Desc</th>
+                                <th>Category</th>
+                                <th>Amount</th>
+                                <th>D/C</th>
+                            </tr>
+                            <tr *ngFor="let transaction of pageOfItems">
+                                <td>{{transaction.txnId}}</td>
+                                <td>{{transaction.description}}</td>
+                                <td>{{transaction.category}}</td>
+                                <td>{{transaction.amount}}</td>
+                                <td>{{transaction.paymentType}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <jw-pagination [items]="transactionList" (changePage)="onChangePage($event)"></jw-pagination>
             </div>
         </div>
         <div class="hdr-banner2">

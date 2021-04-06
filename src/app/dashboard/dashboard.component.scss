@@ -1,5 +1,5 @@
 app-payment-form {
-    width: 30%;
+    width: 28%;
     float: left;
 }
 .contnr {
@@ -20,7 +20,10 @@ app-payment-form {
 .bdy {
     padding: 20px;
     height: 250px;
-    overflow-y: auto;
+    .tbl-wrp {
+        max-height: 169px;
+        overflow-y: auto;
+    }
     table {
         width: 100%;
         border-collapse: collapse;
@@ -35,9 +38,9 @@ app-payment-form {
     }
 }
 .transaction-brd {
-    margin-left: 1%;
+    margin-left: 2%;
     float: left;
-    width: 69%;
+    width: 68%;
     .vw-trans {
         width: 100%;
         border: 1px solid #777777;
@@ -48,6 +51,9 @@ app-payment-form {
             .form-group {
                 width: 33.33%;
                 float: left;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 label {
                     font-size: 13px;
                     float: left;
@@ -77,5 +83,13 @@ app-payment-form {
         border: 1px solid #777777;
         border-radius: 3px;
         float: left;
+    }
+}
+
+::ng-deep {   
+    .pagination {
+        align-items: center;
+        justify-content: center;
+        margin-top: 15px;
     }
 }

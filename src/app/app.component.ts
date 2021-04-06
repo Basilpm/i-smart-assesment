@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
+import { RootscopeService } from './service/rootscope.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'i-smart-assesment';
+  isLoading: boolean = false;
+
+  constructor(private rootscope: RootscopeService, private cdRef : ChangeDetectorRef) {
+    this.rootscope.loaderComponent$.subscribe( (data) => {
+      this.isLoading = data;
+      this.cdRef.detectChanges();
+    })
+  }
 }
